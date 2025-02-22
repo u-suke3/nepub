@@ -56,6 +56,8 @@ class NarouEpisodeParser(HTMLParser):
                 self._current_paragraph += "<ruby>"
             elif tag == "rt":
                 self._current_paragraph += "<rt>"
+            elif tag == "br":
+                pass
             elif self.include_images and tag == "img":
                 img_alt = ""
                 img_src = ""
@@ -81,6 +83,8 @@ class NarouEpisodeParser(HTMLParser):
                 self._current_paragraph += "</ruby>"
             elif tag == "rt":
                 self._current_paragraph += "</rt>"
+            elif tag == "br":
+                self._current_paragraph += "<br />"
             elif tag == "p":
                 # 先頭の字下げを残すため rstrip にしている
                 paragraph = self._current_paragraph.rstrip()
